@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import StepIndicator from "@/components/StepIndicator";
 import {useRouter} from "next/navigation"
 import Header from "@/components/Header";
@@ -74,6 +74,7 @@ type SectionC = Partial<Record<CKey, string>>;
 
 export default function Page() {
   const [locked, setLocked] = useState(false);
+  const mainRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   // New step structure: 0=Info, 1=A, 2=B, 3=C, 4=Review
 const steps = ["Student info", "Section A", "Section B", "Section C", "Review & Submit"] as const;
@@ -106,6 +107,10 @@ const steps = ["Student info", "Section A", "Section B", "Section C", "Review & 
       }
     } catch {}
   }, []);
+
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, [step]);
 
   async function handleSubmit(): Promise<void> {
     if (submitting) return;
@@ -172,7 +177,7 @@ const steps = ["Student info", "Section A", "Section B", "Section C", "Review & 
 
       <StepIndicator steps={[...steps]} current={step} />
 
-      <main className="max-w-3xl mx-auto p-4 pb-16">
+      <main ref={mainRef} className="max-w-3xl mx-auto p-4 pb-16">
         {step === 0 && (
           <div className="card">
             <h2 className="text-lg font-semibold mb-4 text-black">Basic Information</h2>
