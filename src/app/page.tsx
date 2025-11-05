@@ -35,12 +35,6 @@ export default function Home() {
               </li>
             </ul>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href="/apply" className="btn-primary">
-                Take the Assessment
-              </Link>
-            </div>
-
             <p className="mt-3 text-xs text-gray-500">
               By proceeding, you agree to provide accurate information. You’ll receive
               an email once your submission is reviewed.
@@ -58,7 +52,7 @@ export default function Home() {
 
             <div className="mt-6">
               <Link href="/apply" className="btn-primary w-full inline-flex justify-center">
-                Start Now
+                Take the Assessment
               </Link>
             </div>
           </div>
