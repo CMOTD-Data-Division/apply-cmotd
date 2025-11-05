@@ -143,7 +143,7 @@ const steps = ["Student info", "Section A", "Section B", "Section C", "Review & 
 
       try { localStorage.setItem("cmotd-apply-submitted", "1"); } catch {}
 
-      router.push("/apply/thank-you");
+      router.push("/questionnaire/thank-you");
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unexpected error";
       setMsg(`Error: ${message}`);

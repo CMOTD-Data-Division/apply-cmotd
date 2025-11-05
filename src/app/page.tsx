@@ -51,7 +51,7 @@ export default function Home() {
             </div>
 
             <div className="mt-6">
-              <Link href="/apply" className="btn-primary w-full inline-flex justify-center">
+              <Link href="/questionnaire" className="btn-primary w-full inline-flex justify-center">
                 Take the Assessment
               </Link>
             </div>
